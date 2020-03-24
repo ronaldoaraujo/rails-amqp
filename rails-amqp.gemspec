@@ -8,7 +8,7 @@ require 'rails/amqp/version'
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
   spec.name        = 'rails-amqp'
-  spec.version     = Rails::Amqp::VERSION
+  spec.version     = Rails::AMQP::VERSION
   spec.authors     = ['Ronaldo de Sousa Araujo']
   spec.email       = ['contato@ronaldoaraujo.eti.br']
   spec.homepage    = 'https://github.com/ronaldoaraujo/rails-amqp'
