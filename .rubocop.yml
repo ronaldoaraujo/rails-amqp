@@ -6,6 +6,7 @@ AllCops:
     - db/**
     - config/**
     - script/**
+    - vendor/**/*
     - spec/dummy/**/*
 
 Style/Documentation:
