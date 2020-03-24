@@ -1,5 +1,5 @@
 module Rails
-  module Amqp
+  module AMQP
     VERSION = '0.1.0'
   end
 end

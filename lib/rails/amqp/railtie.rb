@@ -1,5 +1,5 @@
 module Rails
-  module Amqp
+  module AMQP
     class Railtie < ::Rails::Railtie
     end
   end
