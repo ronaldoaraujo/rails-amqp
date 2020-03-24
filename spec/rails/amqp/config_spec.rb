@@ -24,52 +24,52 @@ describe Rails::AMQP::Config do
       }
     }.with_indifferent_access
   end
-  
+
   before do
     allow(described_class).to receive(:data).and_return(config)
-  end      
+  end
 
-  it 'should tell client how to connect' do
+  it 'tells client how to connect' do
     expect(described_class.connect).to eq('host' => '127.0.0.1', 'port' => 5672)
-  end  
+  end
 
-  it 'should return queue settings' do
+  it 'returns queue settings' do
     expect(described_class.queue(:testq)).to eq ['testq', { durable: true }]
   end
 
-  it 'should return exchange settings' do
+  it 'returns exchange settings' do
     expect(described_class.exchange(:testx)).to eq %w[fanout testx]
   end
 
-  it 'should return binding queue' do
+  it 'returns binding queue' do
     expect(described_class.binding_queue(:test)).to eq ['testq', { durable: true }]
   end
 
-  it 'should return binding exchange' do
+  it 'returns binding exchange' do
     expect(described_class.binding_exchange(:test)).to eq %w[fanout testx]
   end
 
-  it 'should set exchange to nil when binding use default exchange' do
+  it 'sets exchange to nil when binding use default exchange' do
     expect(described_class.binding_exchange(:default)).to be_nil
   end
 
-  it 'should find binding worker' do
+  it 'finds binding worker' do
     expect(described_class.binding_worker(:test)).to be_instance_of(TestWorker)
   end
 
-  it 'should return keys for queue of binding' do
+  it 'returns keys for queue of binding' do
     expect(described_class.routing_keys(:testd)).to eq ['test_key']
   end
 
-  it 'should return topics to subscribe' do
+  it 'returns topics to subscribe' do
     expect(described_class.topics(:topic)).to eq ['test.a', 'test.b']
   end
 
-  it 'should return empty hash when data channel is not present' do
+  it 'returns empty hash when data channel is not present' do
     expect(described_class.channel(:meh)).to eq({})
   end
 
-  it 'should return channel data for given id' do
+  it 'returns channel data for given id' do
     expect(described_class.channel(:testd)[:prefetch]).to eq(5)
   end
 end

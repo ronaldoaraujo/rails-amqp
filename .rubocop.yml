@@ -1,5 +1,6 @@
 AllCops:
   Include:
+    - lib/**/*
     - Rakefile
     - config.ru
   Exclude:
